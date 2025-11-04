@@ -1,98 +1,91 @@
 import React from 'react';
+import { Briefcase, LineChart, Shield, Users } from 'lucide-react';
 
-const ServiceCard = ({ title, desc, image }) => (
-  <div className="group relative overflow-hidden rounded-xl bg-white text-black shadow-lg ring-1 ring-black/5 hover:shadow-2xl transition">
-    <img src={image} alt={title} className="h-44 w-full object-cover transition duration-500 group-hover:scale-105" />
-    <div className="p-6">
-      <h3 className="text-lg font-semibold">{title}</h3>
-      <p className="mt-2 text-sm text-gray-600">{desc}</p>
-    </div>
-    <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition" />
-  </div>
-);
+const services = [
+  {
+    icon: <Briefcase className="h-6 w-6 text-blue-600" />,
+    title: 'Estrategia Corporativa',
+    desc: 'Diseño de planes de crecimiento y posicionamiento para maximizar valor y competitividad.',
+  },
+  {
+    icon: <LineChart className="h-6 w-6 text-blue-600" />,
+    title: 'Finanzas & M&A',
+    desc: 'Modelos financieros, valuaciones, due diligence y acompañamiento en fusiones y adquisiciones.',
+  },
+  {
+    icon: <Shield className="h-6 w-6 text-blue-600" />,
+    title: 'Riesgos & Cumplimiento',
+    desc: 'Gobierno corporativo, gestión de riesgos y cumplimiento normativo con estándares internacionales.',
+  },
+  {
+    icon: <Users className="h-6 w-6 text-blue-600" />,
+    title: 'Transformación Organizacional',
+    desc: 'Diseño organizacional, cultura y procesos para habilitar el cambio y la ejecución.',
+  },
+];
 
 const ServicesSection = () => {
-  const residencyCountries = [
-    'Emiratos Árabes Unidos',
-    'Malta',
-    'Chipre',
-    'Romania',
-    'Paraguay',
-    'Panamá',
-    'Argentina',
-    'Italia',
-    'Portugal',
-  ];
-
   return (
-    <section id="servicios" className="bg-white text-black py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl sm:text-4xl font-semibold text-center">
-          Nuestros servicios
-        </h2>
-        <p className="mt-3 text-center text-gray-600 max-w-3xl mx-auto">
-          Soluciones premium para emprendedores digitales que buscan optimizar su carga fiscal y blindar su patrimonio a nivel internacional.
-        </p>
-
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <ServiceCard
-            title="Cambio de residencia fiscal"
-            desc={`Asesoramiento integral para trasladar tu residencia fiscal. Países: ${residencyCountries.join(', ')}.`}
-            image="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg"
-          />
-          <ServiceCard
-            title="Apertura de sociedades offshore"
-            desc="Estructuras en EE.UU., Reino Unido, Hong Kong y Singapur para escalar con eficiencia y compliance."
-            image="https://images.pexels.com/photos/5668773/pexels-photo-5668773.jpeg"
-          />
-          <ServiceCard
-            title="Cuentas bancarias internacionales"
-            desc="Apertura y asesoría para cuentas offshore con máxima confidencialidad y protección financiera."
-            image="https://images.pexels.com/photos/210607/pexels-photo-210607.jpeg"
-          />
-          <ServiceCard
-            title="Consultoría Fiscal Internacional"
-            desc="Diagnóstico 360°, planificación fiscal y roadmap de implementación con seguimiento anual."
-            image="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg"
-          />
-          <ServiceCard
-            title="Holding Companies"
-            desc="Diseño de estructuras holding para optimizar impuestos, proteger activos y facilitar expansión global."
-            image="https://images.pexels.com/photos/3183198/pexels-photo-3183198.jpeg"
-          />
-          <ServiceCard
-            title="Cumplimiento y transparencia"
-            desc="Todas nuestras estrategias cumplen con la legalidad vigente. Documentación y reporting impecables."
-            image="https://images.pexels.com/photos/5668559/pexels-photo-5668559.jpeg"
-          />
+    <section id="services" className="relative bg-white py-20 text-gray-900">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-12 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+          <div>
+            <h2 className="text-3xl font-semibold sm:text-4xl">Servicios</h2>
+            <p className="mt-2 max-w-2xl text-gray-600">
+              Soluciones de alto impacto para acelerar resultados y construir ventajas sostenibles.
+            </p>
+          </div>
+          <a
+            href="#contact"
+            className="inline-flex items-center rounded-full bg-blue-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-blue-500"
+          >
+            Solicitar propuesta
+          </a>
         </div>
 
-        <div id="consultoria" className="mt-12 rounded-2xl bg-gradient-to-br from-blue-600 to-black p-1">
-          <div className="rounded-2xl bg-white p-8 sm:p-10">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-2xl font-semibold">Reserva una consultoría estratégica</h3>
-                <p className="mt-2 text-gray-600">
-                  Agenda una llamada con nuestro equipo para evaluar tu situación y diseñar el plan óptimo para tu internacionalización.
-                </p>
-                <a
-                  href="#"
-                  className="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-md bg-blue-600 text-white font-medium hover:bg-blue-500 transition shadow-lg shadow-blue-600/30"
-                >
-                  Ver disponibilidad del calendario
-                </a>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((s) => (
+            <div key={s.title} className="group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition hover:shadow-md">
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50">
+                {s.icon}
               </div>
-              <div className="relative aspect-video rounded-xl overflow-hidden">
-                <iframe
-                  className="absolute inset-0 w-full h-full"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&controls=1"
-                  title="VSL Rizzo & Partners"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
+              <h3 className="text-lg font-semibold">{s.title}</h3>
+              <p className="mt-2 text-sm text-gray-600">{s.desc}</p>
+              <div className="mt-4 text-sm font-medium text-blue-700 opacity-0 transition group-hover:opacity-100">
+                Conoce más →
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Embedded consult CTA/video */}
+        <div className="mt-16 grid items-center gap-8 lg:grid-cols-2">
+          <div className="aspect-video w-full overflow-hidden rounded-2xl border border-gray-100 shadow-sm">
+            <iframe
+              className="h-full w-full"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="Video presentación"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+          <div>
+            <h3 className="text-2xl font-semibold">Agenda una sesión de diagnóstico</h3>
+            <p className="mt-3 text-gray-600">
+              En 30 minutos identificamos oportunidades tácticas y definimos próximos pasos concretos.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-gray-700">
+              <li>• Sin costo, enfoque práctico</li>
+              <li>• Recomendaciones accionables</li>
+              <li>• Confidencialidad absoluta</li>
+            </ul>
+            <a
+              href="#contact"
+              className="mt-6 inline-flex rounded-full bg-blue-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-blue-500"
+            >
+              Reservar ahora
+            </a>
           </div>
         </div>
       </div>

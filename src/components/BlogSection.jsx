@@ -2,42 +2,49 @@ import React from 'react';
 
 const posts = [
   {
-    title: 'Residencia fiscal: cómo elegir el país correcto',
-    excerpt: 'Criterios clave para trasladar tu residencia fiscal sin riesgos y con máxima eficiencia.',
-    image: 'https://images.pexels.com/photos/3184466/pexels-photo-3184466.jpeg',
+    title: 'Tendencias de M&A 2025',
+    excerpt: 'Qué pueden esperar los CFOs ante un escenario de tasas cambiantes y valuaciones en ajuste.',
+    image: 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop',
+    href: '#',
   },
   {
-    title: 'Holding companies: estructura, ventajas y errores comunes',
-    excerpt: 'Guía práctica para proteger activos y optimizar impuestos usando holdings internacionales.',
-    image: 'https://images.pexels.com/photos/3184633/pexels-photo-3184633.jpeg',
+    title: 'Gobierno corporativo en crecimiento',
+    excerpt: 'Prácticas clave para preparar tu empresa para inversión institucional.',
+    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop',
+    href: '#',
   },
   {
-    title: 'Cuentas bancarias offshore: mitos, realidades y compliance',
-    excerpt: 'Cómo abrir y operar cuentas internacionales con seguridad y cumplimiento.',
-    image: 'https://images.pexels.com/photos/210607/pexels-photo-210607.jpeg',
+    title: 'Estrategia: del plan a la acción',
+    excerpt: 'Cómo vincular métricas, incentivos y ejecución para resultados sostenibles.',
+    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&auto=format&fit=crop',
+    href: '#',
   },
 ];
 
 const BlogSection = () => {
   return (
-    <section id="blog" className="bg-white text-black py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-end justify-between gap-4">
+    <section className="bg-white py-20">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-10 flex items-end justify-between">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-semibold">Blog</h2>
-            <p className="mt-2 text-gray-600">Estrategia, fiscalidad y expansión internacional para founders.</p>
+            <h2 className="text-3xl font-semibold sm:text-4xl">Ideas y perspectivas</h2>
+            <p className="mt-2 max-w-2xl text-gray-600">Insights para líderes que construyen el futuro de su organización.</p>
           </div>
-          <a href="#" className="text-blue-600 hover:text-blue-500 font-medium">Ver todos los artículos →</a>
+          <a href="#" className="text-sm font-medium text-blue-700 hover:underline">Ver todo</a>
         </div>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((p) => (
-            <article key={p.title} className="group rounded-xl overflow-hidden bg-white ring-1 ring-black/5 shadow hover:shadow-lg transition">
-              <img src={p.image} alt={p.title} className="h-48 w-full object-cover group-hover:scale-[1.02] transition" />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold group-hover:text-blue-600 transition">{p.title}</h3>
-                <p className="mt-2 text-gray-600 text-sm">{p.excerpt}</p>
+            <a key={p.title} href={p.href} className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition hover:shadow-md">
+              <div className="aspect-[16/10] w-full overflow-hidden">
+                <img src={p.image} alt={p.title} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
               </div>
-            </article>
+              <div className="p-5">
+                <h3 className="text-lg font-semibold text-gray-900">{p.title}</h3>
+                <p className="mt-2 line-clamp-2 text-sm text-gray-600">{p.excerpt}</p>
+                <div className="mt-4 text-sm font-medium text-blue-700">Leer más →</div>
+              </div>
+            </a>
           ))}
         </div>
       </div>

@@ -1,48 +1,40 @@
 import React from 'react';
+import { CheckCircle, Award, Clock, Target } from 'lucide-react';
 
-const Pill = ({ children }) => (
-  <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-medium ring-1 ring-blue-200">
-    {children}
-  </span>
-);
+const bullets = [
+  { icon: <Award className="h-5 w-5 text-blue-600" />, text: 'Experiencia comprobada en múltiples industrias' },
+  { icon: <Target className="h-5 w-5 text-blue-600" />, text: 'Enfoque en resultados y creación de valor' },
+  { icon: <Clock className="h-5 w-5 text-blue-600" />, text: 'Ejecución ágil con impactos en semanas' },
+  { icon: <CheckCircle className="h-5 w-5 text-blue-600" />, text: 'Metodologías probadas y personalizadas' },
+];
 
 const WhyUsSection = () => {
   return (
-    <section className="bg-black text-white py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-semibold">
-              ¿Por qué trabajar con nosotros?
-            </h2>
-            <p className="mt-4 text-gray-300">
-              Somos un despacho internacional experto en fiscalidad y estructuras corporativas. Combinamos precisión legal, visión estratégica y una ética de transparencia absoluta.
-            </p>
-            <ul className="mt-6 space-y-4 text-gray-200">
-              <li className="flex gap-3"><span className="text-blue-500">•</span> Competencia y profesionalismo avalados por casos reales de éxito.</li>
-              <li className="flex gap-3"><span className="text-blue-500">•</span> Legalidad garantizada: cada paso se diseña y ejecuta con cumplimiento normativo.</li>
-              <li className="flex gap-3"><span className="text-blue-500">•</span> Seguimiento personalizado todo el año, con garantía de satisfacción al 100%.</li>
-              <li className="flex gap-3"><span className="text-blue-500">•</span> Transparencia total en honorarios, plazos y entregables.</li>
-            </ul>
-            <div className="mt-6 flex flex-wrap gap-2">
-              <Pill>Compliance</Pill>
-              <Pill>Optimización fiscal</Pill>
-              <Pill>Protección patrimonial</Pill>
-              <Pill>Internacionalización</Pill>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-white/10">
-              <img
-                src="https://images.pexels.com/photos/5668771/pexels-photo-5668771.jpeg"
-                alt="Equipo Rizzo & Partners"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-6 -left-6 bg-blue-600 text-white p-4 rounded-xl shadow-xl">
-              <p className="text-sm">+200 proyectos internacionales</p>
-              <p className="text-xl font-semibold">Satisfacción 100%</p>
-            </div>
+    <section className="relative bg-gray-50 py-20">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-2">
+        <div className="order-2 lg:order-1">
+          <h2 className="text-3xl font-semibold sm:text-4xl">¿Por qué Rizzo & Partners?</h2>
+          <p className="mt-3 text-gray-700">
+            Nos integramos con tu equipo para resolver los retos que importan, combinando rigor analítico
+            con una ejecución centrada en el negocio.
+          </p>
+          <ul className="mt-6 space-y-3">
+            {bullets.map((b, idx) => (
+              <li key={idx} className="flex items-start gap-3">
+                <span className="mt-0.5">{b.icon}</span>
+                <span className="text-gray-700">{b.text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="order-1 lg:order-2">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-sm">
+            <img
+              src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1600&auto=format&fit=crop"
+              alt="Equipo trabajando en estrategia"
+              className="h-full w-full object-cover"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-transparent to-black/10" />
           </div>
         </div>
       </div>
