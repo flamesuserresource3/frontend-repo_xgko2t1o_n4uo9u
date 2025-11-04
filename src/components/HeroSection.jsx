@@ -1,10 +1,12 @@
 import React from 'react';
+import Spline from '@splinetool/react-spline';
 
 const HeroSection = () => {
   return (
     <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-black text-white">
+      {/* Capa de video como fallback visual */}
       <video
-        className="absolute inset-0 w-full h-full object-cover opacity-70"
+        className="absolute inset-0 w-full h-full object-cover opacity-60"
         src="https://videos.pexels.com/video-files/3183171/3183171-uhd_2560_1440_25fps.mp4"
         autoPlay
         muted
@@ -12,7 +14,16 @@ const HeroSection = () => {
         playsInline
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
+      {/* Escena 3D Spline como capa principal del fondo */}
+      <div className="absolute inset-0">
+        <Spline
+          scene="https://prod.spline.design/qH4o2g6wVfKzKQY5/scene.splinecode"
+          style={{ width: '100%', height: '100%' }}
+        />
+      </div>
+
+      {/* Gradiente superior para legibilidad del texto (no bloquea interacción) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
         <img
